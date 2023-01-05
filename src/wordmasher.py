@@ -7,14 +7,9 @@ def wordmash(replace_df):
     for (i, row) in replace_df.iterrows():
         doc = Document("template.docx")
         for col in replace_df.columns:
-            search_replace(doc, col, row[col])
+            docx_replace(doc, **{search: replace})
 
-        doc.save(f"project_{i}.docx")
-        break
-
-def search_replace(doc, search, replace):
-    regex = re.compile(search)
-    docx_replace(doc, **{search: replace})
+        doc.save(f"project_{i+1}.docx")
 
 if __name__ == "__main__":
     db = pd.read_excel("database.xlsx")
