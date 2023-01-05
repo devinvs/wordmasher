@@ -1,5 +1,5 @@
-def parse_excel(path):
-    pass
+import pandas as pd
+db = pd.read_excel(path)
 
 def wordmash(replace_dict):
     pass
